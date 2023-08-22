@@ -1,0 +1,54 @@
+---
+  class_name: "XRMOvirtLogSensor"
+  enabled: false
+  entry_point: "xrm_ovirt_log_sensor.py"
+  description: "XRM sensor which monitors ovirt logs for specific events"
+  poll_interval: 60
+  trigger_types:
+    -
+      name: "event_log_watch"
+      pack: "xrm_ovirt"
+      description: "XRM trigger which indicates a new event has been detected"
+      parameters_schema:
+        type: "object"
+        properties:
+          01_engine_url:  
+            description: "URL to the management server (Engine) to monitor"
+            default: "https://engine1.localdomain/"
+            type: "string"
+            required: true
+          02_engine_login:  
+            description: "User login with admin rights"
+            default: "admin@ovirt@internalsso"
+            type: "string"
+            required: true
+          03_engine_password:  
+            description: "User password"
+            default: "123qweASD@"
+            type: "string"
+            required: true
+            secret: true
+          04_event_search_text:
+            description: "Action will be triggered when this text appears in event log"
+            default: "was deactivated by system because it's not visible by any of the hosts"
+            type: "string"
+            required: true
+        additionalProperties: false
+      # This is the schema of the trigger payload the sensor generates
+      payload_schema:
+        type: "object"
+        properties:
+          description:
+            type: "string"
+          time:
+            type: "string"
+          severity:
+            type: "string"
+          code:
+            type: "string"
+          origin:
+            type: "string"
+          index:
+            type: "string"
+          custom_id:
+            type: "string"

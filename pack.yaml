@@ -1,0 +1,11 @@
+---
+ref: xrm_settings
+name : xrm_settings
+description : XRM Settings pack
+keywords:
+  - xrm
+version: 1.0.1
+python_versions:
+  - "3"
+author : XRM
+email : info@x-rm.ru
