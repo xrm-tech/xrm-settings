@@ -1,17 +1,17 @@
 ---
   01_monitoring_url:
-    description: "Primary engine API address"
+    description: "Engine API address"
     type: "string"
     required: true
     default: "https://engine1.localdomain/ovirt-engine/api"
     secret: false
   02_monitoring_username:
-    description: "Primary engine account username"
+    description: "Engine account username"
     type: "string"
     default: "admin@ovirt@internal"
     required: true
   03_monitoring_password:
-    description: "Primary engine account password"
+    description: "Engine account password"
     type: "string"
     default: "123qweASD@"
     secret: true
